@@ -29,5 +29,14 @@ namespace HelensPieShop.Controllers
 
             return View(vm);
         }
+
+        public IActionResult Details(int pieId)
+        {
+            var pie = _pieRepository.GetPieById(pieId);
+            if (pie == null)
+                return NotFound();
+
+            return View(pie);
+        }
     }
 }
