@@ -15,12 +15,12 @@ namespace HelensPieShop.Models
             _context = context;
         }
 
-        public IEnumerable<Pie> GetAllPies()
+        public IEnumerable<Infrastructure.Pie> GetAllPies()
         {
             return _context.Pies;
         }
 
-        public Pie GetPieById(int pieId)
+        public Infrastructure.Pie GetPieById(int pieId)
         {
             return _context.Pies.FirstOrDefault(_ => _.PieId == pieId);
         }

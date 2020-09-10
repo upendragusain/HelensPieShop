@@ -18,6 +18,8 @@ namespace HelensPieShop
 
             services.AddTransient<IPieRepository, PieRepository>();
 
+            services.AddTransient<IFeedbackRepository, FeedBackRepository>();
+
             services.AddMvc();
         }
 

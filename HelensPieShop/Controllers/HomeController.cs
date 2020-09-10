@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using HelensPieShop.Models;
 using HelensPieShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +16,7 @@ namespace HelensPieShop.Controllers
 
         public IActionResult Index()
         {
-            var pies = _pieRepository.GetAllPies();
+            var pies = _pieRepository.GetAllPies().Select(_ => Map(_));
 
             var vm = new HomeViewModel()
             {
@@ -36,7 +33,22 @@ namespace HelensPieShop.Controllers
             if (pie == null)
                 return NotFound();
 
-            return View(pie);
+            return View(Map(pie));
+        }
+
+        private Pie Map(Infrastructure.Pie pie)
+        {
+            return new Pie()
+            {
+                ImageThumbnailUrl = pie.ImageThumbnailUrl,
+                ImageUrl = pie.ImageUrl,
+                IsPieOfTheWeek = pie.IsPieOfTheWeek,
+                LongDescription = pie.LongDescription,
+                Name = pie.Name,
+                PieId = pie.PieId,
+                Price = pie.Price,
+                ShortDescription = pie.ShortDescription
+            };
         }
     }
 }

@@ -8,8 +8,8 @@ namespace HelensPieShop.Models
 {
     public interface IPieRepository
     {
-        IEnumerable<Pie> GetAllPies();
+        IEnumerable<Infrastructure.Pie> GetAllPies();
 
-        Pie GetPieById(int pieId);
+        Infrastructure.Pie GetPieById(int pieId);
     }
 }
