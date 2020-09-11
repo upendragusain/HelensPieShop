@@ -30,7 +30,7 @@ namespace HelensPieShop
 
             services.AddTransient<IFeedbackRepository, FeedBackRepository>();
 
-            services.AddMvc();
+            services.AddControllersWithViews();
             services.AddRazorPages();
         }
 
@@ -46,6 +46,10 @@ namespace HelensPieShop
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

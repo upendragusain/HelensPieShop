@@ -1,9 +1,11 @@
 ﻿using HelensPieShop.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace HelensPieShop.Controllers
 {
+    [Authorize]
     public class FeedbackController : Controller
     {
         private readonly IFeedbackRepository _feedbackRepository;
